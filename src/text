@@ -1,0 +1,71 @@
+
+
+Логика
+Апи - создать задачу
+название + дата создания + статус Новая
+исменить/удалить задачу 
+id задачи / чек завершена или нет -возвращает список задач 
+
+{
+    id: string
+    name: string
+    isComplete: boolean
+    timeCreate: string // ? 
+    timeDone: srting // ?
+}
+Апи: 
+Регистрация/авторизация/токен
+
+Основное - 
+создать задачу (поле имя обязательно) /create
+изменить задачу (опциональны поля name, isComplete) /change
+удалить задачу (гуи шлет id) /delete
+
+
+all post
+/create
+{
+    name: 'some name'
+}
+return list 
+{
+    id: string
+    name: string
+    isComplete: boolean
+    timeCreate: string // ? 
+    timeDone: srting // ?
+}
+
+/change
+{
+     id: '321'
+    name: 'another task'
+}
+
+return list 
+{
+    id: string
+    name: string
+    isComplete: boolean
+    timeCreate: string // ? 
+    timeDone: srting // ?
+}
+
+/delete/id
+
+return list 
+{
+    id: string
+    name: string
+    isComplete: boolean
+    timeCreate: string // ? 
+    timeDone: srting // ?
+}
+
+
++ icon
+страницы: 
+ЛК 
+Список 
+отдельный корень  
+Предупреждения

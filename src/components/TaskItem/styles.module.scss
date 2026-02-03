@@ -1,0 +1,43 @@
+$primary-border-color: #eee;
+$muted-text-color: #aaa;
+$danger-color: #ff4d4d;
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid $primary-border-color;
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #f9f9f9;
+
+    .deleteButton {
+      opacity: 1;
+    }
+  }
+}
+
+.taskText {
+  flex-grow: 1;
+  margin: 0 12px;
+  transition: color 0.3s;
+  cursor: pointer;
+
+  &.completed {
+    text-decoration: line-through;
+    color: $muted-text-color;
+  }
+}
+
+.deleteButton {
+  background: $danger-color;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
