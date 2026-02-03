@@ -7,10 +7,13 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "miragejs": "^0.1.48",
     "sass": "^1.81.0",
     "solid-devtools": "^0.34.3",

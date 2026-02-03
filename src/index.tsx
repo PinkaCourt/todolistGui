@@ -4,9 +4,11 @@ import "solid-devtools";
 import App from "./App";
 import makeServer from "./mocks/server";
 
-if (import.meta.env.DEV) {
-  makeServer({ environment: "development" });
-}
+// if (import.meta.env.DEV) {
+//   makeServer({ environment: "development" });
+// }
+
+makeServer({ environment: "development" });
 
 const root = document.getElementById("root");
 
