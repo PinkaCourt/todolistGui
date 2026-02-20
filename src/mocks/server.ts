@@ -15,6 +15,19 @@ type AppRegistry = Registry<
 >;
 type AppSchema = Schema<AppRegistry>;
 
+const actions = [
+  "Купить молоко",
+  "Погулять с собакой",
+  "Написать код",
+  "Позвонить маме",
+  "Убраться в комнате",
+  "Оплатить счета",
+  "Прочитать книгу",
+  "Сходить в зал",
+  "Заказать пиццу",
+  "Поспать",
+];
+
 export default function makeServer({ environment = "development" } = {}) {
   return createServer({
     environment,
@@ -41,29 +54,19 @@ export default function makeServer({ environment = "development" } = {}) {
         login: "pkionrkta",
       });
 
-      server.create("todo", {
-        id: "123",
-        name: "что-то сделать",
-        isComplete: false,
-        timeCreate: twoDaysAgo + getRandomOffset(),
-        timeDone: null,
-      });
+      for (let i = 0; i < 30; i++) {
+        const isDone = i < 10;
 
-      server.create("todo", {
-        id: "100",
-        name: "сделано",
-        isComplete: true,
-        timeCreate: twoDaysAgo + getRandomOffset(),
-        timeDone: oneDayAgo + getRandomOffset(),
-      });
-
-      server.create("todo", {
-        id: "124",
-        name: "qwerty",
-        isComplete: false,
-        timeCreate: twoDaysAgo + getRandomOffset(),
-        timeDone: null,
-      });
+        server.create("todo", {
+          id: (i + 1).toString(),
+          name: isDone
+            ? `Выполнено: ${actions[i % actions.length]}`
+            : `Сделать: ${actions[i % actions.length]}`,
+          isComplete: isDone,
+          timeCreate: twoDaysAgo + getRandomOffset(),
+          timeDone: isDone ? oneDayAgo + getRandomOffset() : null,
+        });
+      }
     },
 
     routes() {

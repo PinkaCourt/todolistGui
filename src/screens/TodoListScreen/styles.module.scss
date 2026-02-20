@@ -1,16 +1,21 @@
 .container {
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  align-items: center;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  flex-shrink: 0;
 
   h1 {
     margin: 0;
@@ -18,10 +23,38 @@
   }
 }
 
-.addSection {
+.main {
+  width: 100%;
+  max-width: 800px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+}
+
+.controls {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+
+.addButton {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  background-color: #4a90e2;
+  color: white;
+  margin: 5px;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+
+  &:hover {
+    background-color: #357abd;
+  }
 }
 
 .input {
@@ -37,22 +70,10 @@
   }
 }
 
-.addButton {
-  padding: 0 20px;
-  cursor: pointer;
-  background-color: #4a90e2;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 24px;
-
-  &:hover {
-    background-color: #357abd;
-  }
-}
-
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex: 1;
+  overflow-y: auto;
 }
