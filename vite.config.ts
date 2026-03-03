@@ -12,4 +12,17 @@ export default defineConfig({
     target: "esnext",
   },
   base: "/todolistGui/",
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: false,
+        additionalData: `@use "@/styles/colors" as *;`,
+      },
+    },
+  },
 });
