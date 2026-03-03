@@ -32,7 +32,6 @@ const TodoListScreen: Component = () => {
 
       <main class={styles.main}>
         <ul class={styles.list}>
-          <For each={state.todos}>{(todo) => <TaskItem task={todo} />}</For>
           {openInput() && (
             <input
               class={styles.input}
@@ -42,6 +41,7 @@ const TodoListScreen: Component = () => {
               placeholder="To do"
             />
           )}
+          <For each={state.todos}>{(todo) => <TaskItem task={todo} />}</For>
         </ul>
       </main>
       <footer class={styles.controls}>
