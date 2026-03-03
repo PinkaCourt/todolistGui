@@ -1,4 +1,4 @@
-$primary-border-color: #eee;
+@import "src/styles/colors";
 
 .container {
   height: 100vh;
@@ -13,7 +13,7 @@ $primary-border-color: #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $grey-light;
   padding-bottom: 20px;
   width: 100%;
   max-width: 800px;
@@ -21,7 +21,7 @@ $primary-border-color: #eee;
 
   h1 {
     margin: 0;
-    color: #333;
+    color: $black-light;
   }
 }
 
@@ -47,15 +47,15 @@ $primary-border-color: #eee;
   width: 60px;
   height: 60px;
   cursor: pointer;
-  background-color: #4a90e2;
-  color: white;
+  background-color: $blue;
+  color: $white;
   margin: 5px;
   border: none;
   border-radius: 50%;
   font-size: 24px;
 
   &:hover {
-    background-color: #357abd;
+    background-color: $dark-blue;
   }
 }
 
@@ -67,12 +67,11 @@ $primary-border-color: #eee;
   margin: 0;
   width: 100%;
   padding: 12px 47px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $grey-light;
   font-size: 1.1rem;
-  border-bottom: 1px solid $primary-border-color;
 
   &:focus {
-    border-color: #4a90e2;
+    border-color: $blue;
   }
 }
 

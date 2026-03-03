@@ -1,17 +1,15 @@
-$primary-border-color: #eee;
-$muted-text-color: #aaa;
-$danger-color: #ff4d4d;
+@import "src/styles/colors";
 
 .taskItem {
   display: flex;
   align-items: center;
   padding: 12px 15px;
-  border-bottom: 1px solid $primary-border-color;
+  border-bottom: 1px solid $grey-light;
   font-size: 1.1rem;
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: #f9f9f9;
+    background-color: $white-dark;
 
     .deleteButton {
       opacity: 1;
@@ -27,13 +25,13 @@ $danger-color: #ff4d4d;
 
   &.completed {
     text-decoration: line-through;
-    color: $muted-text-color;
+    color: $grey;
   }
 }
 
 .deleteButton {
-  background: $danger-color;
-  color: white;
+  background: $red;
+  color: $white;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
