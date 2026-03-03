@@ -55,7 +55,7 @@ export default function makeServer({ environment = "development" } = {}) {
       });
 
       for (let i = 0; i < 30; i++) {
-        const isDone = i < 10;
+        const isDone = i > 10;
 
         server.create("todo", {
           id: (i + 1).toString(),
