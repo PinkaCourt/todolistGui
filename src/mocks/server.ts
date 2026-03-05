@@ -21,11 +21,11 @@ const actions = [
   "Написать код",
   "Позвонить маме",
   "Убраться в комнате",
-  "Оплатить счета",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
   "Прочитать книгу",
   "Сходить в зал",
   "Заказать пиццу",
-  "Поспать",
+  "Очень длинный текст как не в себя написанный, чтобы проверить, как верстка списка задач справится с переносом строк и не сломается ли при этом иконка корзины",
 ];
 
 export default function makeServer({ environment = "development" } = {}) {
@@ -73,9 +73,23 @@ export default function makeServer({ environment = "development" } = {}) {
       this.urlPrefix = "";
       this.namespace = "";
 
+      const getSortedTodos = (schema: AppSchema) => {
+        return schema.all("todo").models.sort((a, b) => {
+          if (a.isComplete !== b.isComplete) {
+            return a.isComplete ? 1 : -1;
+          }
+
+          if (a.isComplete && b.isComplete) {
+            return (b.timeDone || 0) - (a.timeDone || 0);
+          }
+
+          return b.timeCreate - a.timeCreate;
+        });
+      };
+
       this.get("/user", (schema) => schema.first("user"));
 
-      this.get("/todos", (schema) => schema.all("todo").models);
+      this.get("/todos", (schema: AppSchema) => getSortedTodos(schema));
 
       this.post("/create", (schema: AppSchema, request) => {
         const attrs = JSON.parse(request.requestBody);
@@ -87,7 +101,7 @@ export default function makeServer({ environment = "development" } = {}) {
           timeDone: null,
         });
 
-        return schema.all("todo").models;
+        return getSortedTodos(schema);
       });
 
       this.post("/change", (schema: AppSchema, request) => {
@@ -104,7 +118,7 @@ export default function makeServer({ environment = "development" } = {}) {
           todo.update(attrs);
         }
 
-        return schema.all("todo").models;
+        return getSortedTodos(schema);
       });
 
       this.post("/delete/:id", (schema, request) => {
@@ -112,7 +126,7 @@ export default function makeServer({ environment = "development" } = {}) {
 
         schema.find("todo", id)?.destroy();
 
-        return schema.all("todo").models;
+        return getSortedTodos(schema);
       });
 
       this.passthrough();

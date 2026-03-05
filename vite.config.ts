@@ -3,7 +3,7 @@ import solidPlugin from "vite-plugin-solid";
 import devtools from "solid-devtools/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [devtools(), solidPlugin(), tsconfigPaths()],
   server: {
     port: 3000,
@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     target: "esnext",
   },
-  base: "/todolistGui/",
+  base: command === "build" ? "/todolistGui/" : "/",
   resolve: {
     alias: {
       "@": "/src",
@@ -25,4 +25,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

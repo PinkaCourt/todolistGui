@@ -1,6 +1,7 @@
 import { Component } from "solid-js";
 import { toggleTodo, removeTodo } from "common/store";
 import { Todo } from "common/types";
+import Image from "components/Image";
 import styles from "./styles.module.scss";
 
 interface TaskItemProps {
@@ -29,9 +30,7 @@ const TaskItem: Component<TaskItemProps> = (props) => {
       >
         {props.task.name}
       </span>
-      <button onClick={handleDelete} class={styles.deleteButton}>
-        Удалить
-      </button>
+      <Image name="trash" class={styles.deleteButton} onClick={handleDelete} />
     </li>
   );
 };
