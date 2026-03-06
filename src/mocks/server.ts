@@ -87,7 +87,11 @@ export default function makeServer({ environment = "development" } = {}) {
         });
       };
 
-      this.get("/user", (schema) => schema.first("user"));
+      this.get("/user", (schema) => {
+        const user = schema.first("user");
+
+        return user ? user.attrs : null;
+      });
 
       this.get("/todos", (schema: AppSchema) => getSortedTodos(schema));
 
