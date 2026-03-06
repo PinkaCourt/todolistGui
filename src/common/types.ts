@@ -1,3 +1,7 @@
+import defaultLocale from "lang/ru";
+
+export type LocaleType = typeof defaultLocale;
+
 export interface User {
   id: string;
   name: string;

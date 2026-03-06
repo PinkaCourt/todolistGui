@@ -3,6 +3,7 @@ import { state, setScreen, addTodo } from "common/store";
 import { ScreenType } from "common/types";
 import TaskItem from "components/TaskItem";
 import ProfileWidget from "components/Profile";
+import { getTranslatedText } from "common/textUtils";
 import styles from "./styles.module.scss";
 
 const TodoListScreen: Component = () => {
@@ -24,7 +25,7 @@ const TodoListScreen: Component = () => {
   return (
     <div class={styles.container}>
       <header class={styles.header}>
-        <h1>TO DO List</h1>
+        <h1>{getTranslatedText("todoListTitle")}</h1>
         <div onClick={() => setScreen(ScreenType.Profile)}>
           <ProfileWidget />
         </div>

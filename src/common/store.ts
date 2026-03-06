@@ -1,5 +1,6 @@
 import { createStore } from "solid-js/store";
 import { Todo, User, ScreenType } from "./types";
+import { getTranslatedText } from "common/textUtils";
 import * as api from "./api";
 
 interface State {
@@ -29,7 +30,7 @@ const loadData = async () => {
 
     setState({ user, todos, isLoading: false });
   } catch (err) {
-    setState({ error: "Ошибка загрузки", isLoading: false });
+    setState({ error: getTranslatedText("loadingError"), isLoading: false });
   }
 };
 
