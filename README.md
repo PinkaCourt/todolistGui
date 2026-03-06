@@ -1,36 +1,37 @@
-## Usage
+# TO-DO List Application
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+Современное клиентское приложение для управления списком задач, разработанное на **SolidJS** + **TypeScript**.
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+## 🚀 Live Demo (Production)
+
+Проект доступен для использования по ссылке:  
+👉 **[https://pinkacourt.github.io/todolistGui/](https://pinkacourt.github.io/todolistGui/)**
+
+> **⚠️ Важное примечание:**  
+> В данный момент в production-версии вместо реального бэкенда развернуты **моки на базе [MirageJS](https://miragejs.com/)**.  
+> Вся логика работы с базой данных (создание, удаление, сортировка и изменение статуса задач) полностью имитируется на стороне клиента. Данные сохраняются только в памяти текущей сессии браузера и будут сброшены при жесткой перезагрузке страницы.
+
+---
+
+## 🛠 Стек технологий
+
+- **Фреймворк:** [SolidJS](https://www.solidjs.com/)
+- **Сборщик:** [Vite](https://vitejs.dev/)
+- **Язык:** TypeScript
+- **Стилизация:** SCSS (CSS Modules)
+- **Mock-Backend:** MirageJS
+- **Деплой:** GitHub Pages (`gh-pages`)
+
+---
+
+## 📦 Локальный запуск (Development)
+
+Для запуска проекта на вашем компьютере клонируйте репозиторий и выполните следующие команды:
 
 ```bash
-$ npm install # or pnpm install or yarn install
+# 1. Установите зависимости
+npm install
+
+# 2. Запустите локальный сервер разработки
+npm run dev
 ```
-
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm run dev` or `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
-
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
