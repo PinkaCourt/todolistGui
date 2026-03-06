@@ -23,6 +23,7 @@ const TaskItem: Component<TaskItemProps> = (props) => {
         type="checkbox"
         checked={props.task.isComplete}
         onChange={handleToggle}
+        class={styles.checkbox}
       />
       <span
         class={styles.taskText}

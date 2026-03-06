@@ -13,9 +13,10 @@ const TodoListScreen: Component = () => {
   const handleAdd = () => {
     if (taskName().trim()) {
       addTodo(taskName());
-      setTaskName("");
-      setOpenInput(false);
     }
+
+    setTaskName("");
+    setOpenInput(false);
   };
 
   const handleAddNew = () => {
@@ -39,6 +40,8 @@ const TodoListScreen: Component = () => {
               value={taskName()}
               onInput={(e) => setTaskName(e.currentTarget.value)}
               onKeyDown={(e) => e.key === "Enter" && handleAdd()}
+              onBlur={handleAdd}
+              ref={(input) => setTimeout(() => input.focus(), 0)}
               placeholder="To do"
             />
           )}

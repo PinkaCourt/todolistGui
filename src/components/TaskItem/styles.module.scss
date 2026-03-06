@@ -15,11 +15,17 @@
   }
 }
 
+.checkbox {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
 .taskText {
   flex-grow: 1;
   margin: 0 12px;
-  transition: color 0.3s;
-  cursor: pointer;
+  cursor: text;
+  user-select: text;
 
   &.completed {
     text-decoration: line-through;
